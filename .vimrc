@@ -11,7 +11,7 @@ colors tir_black
 "calmar.vim  desert.vim  herald.vim  inkpot.vim  ir_black.vim  jellybeans.vim  molokai.vim  moria.vim  mustang.vim  solarized.vim  wombat.vim  zmrok.vim
 
 highlight TODO ctermbg=red ctermfg=white guibg=#592929
-match TODO /\/\/TODO.*/
+match TODO /\/\/ ?TODO.*/
 
 highlight LineNr ctermfg=238 ctermbg=233
 
@@ -26,6 +26,10 @@ set cursorline
 
 hi StatusLine guifg=#CCCCCC guibg=#202020 gui=italic ctermfg=235 ctermbg=254
 hi StatusLineNC guifg=black guibg=#202020 ctermfg=0 ctermbg=235 
+hi MBENormal ctermbg=235 ctermfg=248
+hi MBEVisibleNormal ctermbg=235 ctermfg=46
+hi MBEChanged ctermbg=235 ctermfg=208
+hi MBEVisibleChanged ctermbg=235 ctermfg=46
 
 
 " Map ctrl-r to replace in visual mode
