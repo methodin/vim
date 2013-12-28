@@ -50,6 +50,7 @@ let g:miniBufExplModSelTarget = 1
 set hid
 
 au BufNewFile,BufRead *.ctp set filetype=xml
+au BufNewFile,BufRead *.twig set filetype=html
 
 "folding settings
 set foldmethod=syntax   "fold based on indent
@@ -123,8 +124,9 @@ set notimeout ttimeout ttimeoutlen=200
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
 
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
+set expandtab
 
 
 "------------------------------------------------------------
