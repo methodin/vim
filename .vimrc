@@ -145,3 +145,19 @@ nnoremap <C-L> :nohl<CR><C-L>
 
 "------------------------------------------------------------
 
+hi SignColumn ctermbg=232 guibg=#080808
+
+" Set directory for swap files
+set directory=~/.vim/swap,.
+
+" Relative number switch
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
