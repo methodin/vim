@@ -54,11 +54,9 @@ snippet doc_vp
 # Class Variable
 snippet doc_v
 	/**
-	 * ${3:undocumented class variable}
-	 *
-	 * @var ${4:string}
+	 * @var ${3:string}
 	 **/
-	${1:var} $${2};${5}
+	${1:var} $${2};${4}
 # Class
 snippet doc_c
 	/**
@@ -92,12 +90,13 @@ snippet doc_fp
 # Function signature
 snippet doc_s
 	/**
-	 * ${4:undocumented function}
-	 *
-	 * @return ${5:void}
-	 * @author ${6:`g:snips_author`}
+	 * @var ${3:string}
+	 * @Serializer\Type("${4:string}")
+	 * @Serializer\SerializedName("${5}")
 	 **/
-	${1}function ${2}(${3});${7}
+	${1:private} $${2};
+	
+	${6}
 # Function
 snippet doc_f
 	/**
@@ -219,3 +218,13 @@ snippet arr
 	$${1:name} = array(
 		'${2}' => ${3},
 	);
+
+snippet get
+	/**
+	 * @return ${3:string}
+	 **/
+	public function get${1}()
+	{
+		return $this->${2};
+	}
+	${4}
