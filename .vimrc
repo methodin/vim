@@ -8,8 +8,6 @@ set t_Co=256
 set background=dark
 "colors tir_black 
 colors wombat256 
-"colors desert, herald, molokai
-"calmar.vim  desert.vim  herald.vim  inkpot.vim  ir_black.vim  jellybeans.vim  molokai.vim  moria.vim  mustang.vim  solarized.vim  wombat.vim  zmrok.vim
 
 highlight TODO ctermbg=red ctermfg=white guibg=#592929
 match TODO /.*TODO.*/
@@ -23,7 +21,7 @@ hi User3 ctermbg=blue  ctermfg=green
 set statusline=
 set statusline+=%1*  "switch to User1 highlight
 
-set cursorline
+"set cursorline
 
 hi StatusLine guifg=#CCCCCC guibg=#202020 gui=italic ctermfg=235 ctermbg=254
 hi StatusLineNC guifg=black guibg=#202020 ctermfg=0 ctermbg=235 
@@ -41,8 +39,6 @@ noremap ;; :%s:::g<Left><Left><Left>
 inoremap jj <Esc>
 nmap ,rr :call ReloadAllSnippets()<CR>
 
-map ,e :s/=> \([^,]*\),/=> !empty(\1) ? \1 : '',/g<CR>:noh<CR>
-
 " MINIBUFFER
 let g:miniBufExplMapWindowNavVim = 1 
 let g:miniBufExplMapWindowNavArrows = 1 
@@ -52,7 +48,6 @@ set hid
 
 au BufNewFile,BufRead *.ctp set filetype=xml
 au BufNewFile,BufRead *.twig set filetype=html
-au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
 "folding settings
 set foldmethod=syntax   "fold based on indent
