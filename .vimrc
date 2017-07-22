@@ -6,12 +6,13 @@ syntax enable
 filetype on
 set t_Co=256
 set background=dark
-colors tir_black 
+"colors tir_black 
+colors wombat256 
 "colors desert, herald, molokai
 "calmar.vim  desert.vim  herald.vim  inkpot.vim  ir_black.vim  jellybeans.vim  molokai.vim  moria.vim  mustang.vim  solarized.vim  wombat.vim  zmrok.vim
 
 highlight TODO ctermbg=red ctermfg=white guibg=#592929
-match TODO /\/\/ ?TODO.*/
+match TODO /.*TODO.*/
 
 highlight LineNr ctermfg=238 ctermbg=233
 
@@ -51,6 +52,7 @@ set hid
 
 au BufNewFile,BufRead *.ctp set filetype=xml
 au BufNewFile,BufRead *.twig set filetype=html
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
 "folding settings
 set foldmethod=syntax   "fold based on indent
@@ -110,7 +112,7 @@ set visualbell
 set t_vb=
 
 " Enable use of the mouse for all modes
-set mouse=a
+set mouse=nv
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 set cmdheight=2
@@ -122,7 +124,8 @@ set number
 set notimeout ttimeout ttimeoutlen=200
 
 " Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>
+let mapleader=","
+set pastetoggle=<leader>p
 
 set shiftwidth=4
 set tabstop=4
@@ -139,11 +142,6 @@ set ttymouse=xterm2
 " which is the default
 map Y y$
 
-" Map <C-L> (redraw screen) to also turn off search highlighting until the
-" next search
-nnoremap <C-L> :nohl<CR><C-L>
-
-
 "------------------------------------------------------------
 
 hi SignColumn ctermbg=232 guibg=#080808
@@ -155,10 +153,21 @@ set directory=~/.vim/swap,.
 function! NumberToggle()
   if(&relativenumber == 1)
     set number
+    set nornu
   else
     set relativenumber
+    set rnu
   endif
 endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
 
+function! TestRun()
+    silent !clear
+    execute "! fname=$(echo $(basename %) | cut -d'.' -f1) && testName=$(find ./ -path *$fname\"Test.php\") && ./bin/phpunit $testName"
+endfunction
+ 
+map <C-a><C-a> :execute TestRun()<cr>
+
+map <C-l> :colors calmar256-light<cr>
+map <C-d> :colors wombat256<cr>
